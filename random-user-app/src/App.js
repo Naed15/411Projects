@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLoading: true,
+			peers: []
+		};
+	}
+
+	componentDidMount() {
+		this.fetchData();
+	}
+
+	fetchData() {
+		fetch("https://randomuser.me/api?results=25")
+			.then(response => response.json())
+      .then(parsedJSON => console.log(parsedJSON.results(peers => peers.name)))
+      .then(peers =>{
+      this.setState({peers: Data.peers})
+      })
+		
+	
+
+	render() {
+    console.log(this.state.peers)
+
+		return (
+      12
+			<div>
+				<header>Users From My Cell</header>
+
+			</div>
+
+
+		)
+	}
 }
 
 export default App;
