@@ -16,26 +16,19 @@ class App extends Component {
 	fetchData() {
 		fetch("https://randomuser.me/api?results=25")
 			.then(response => response.json())
-      .then(parsedJSON => console.log(parsedJSON.results(peers => peers.name)))
-      .then(peers =>{
-      this.setState({peers: Data.peers})
-      })
-		
-	
+			.then(parsedJSON => console.log(parsedJSON.results(peers => peers.name)))
+			.then(peers => {
+				this.setState({ peers: Data.peers });
+			});
+	}
 
 	render() {
-    console.log(this.state.peers)
-
-		return (
-      12
-			<div>
-				<header>Users From My Cell</header>
-
-			</div>
+    return console.log(this.state.peers);
+  }
+  
 
 
-		)
-	}
+  
 }
 
 export default App;
