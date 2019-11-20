@@ -55,15 +55,11 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-			<DenseAppBar />
-				<TextField label="Username *" />
-				<br />
-				<TextField label="Password * " />
-				<br />
+				<DenseAppBar />
 				{this.state.isLoggedIn ? (
-			<Dashboard />
+					<Dashboard />
 				) : (
-				<LoginForm doLogIn={this.doLogIn} />
+					<LoginForm doLogIn={this.doLogIn} />
 				)}
 			</div>
 		);
@@ -71,7 +67,15 @@ class App extends Component {
 }
 
 function LoginForm(props) {
-	return <button onClick={props.doLogIn}>click me</button>;
+	return (
+		<div>
+			<TextField label="Username *" />
+			<br />
+			<TextField label="Password * " />
+			<br />
+			<button onClick={props.doLogIn}>click me</button>
+		</div>
+	)
 }
 // function App() {
 // return (
