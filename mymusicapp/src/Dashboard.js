@@ -1,108 +1,107 @@
 import React, {Component} from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Switch, Slider, MenuItem, TextField} from '@material-ui/core'
 
 
-const useStyles = makeStyles({
-card: {
-maxWidth: 345,
-},
-media: {
-height: 140,
-},
-});
-
-// function Bar() {
-// return (
-// <div className="App">
 
 
-// <DenseAppBar/>
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
 
-// <TextField label="Enter some text" />
-// <br></br>
-// <TextField label="Enter some text" />
-// <br></br>
-// <Button variant="contained" color="secondary">
-// Submit
-// </Button>
+    this.state = {
+      online: true,
 
-// <Dashboard/>
-// </div>
-// );
-// }
+    };
+  } 
 
 
-// function DenseAppBar() {
-// const classes = useStyles();
-// return (
-// <div className={classes.root}>
-// <AppBar position="static">
-// <Toolbar variant="dense">
-// <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-// </IconButton>
-// <Typography variant="h6" color="inherit">
-// Photos
-// </Typography>
-// </Toolbar>
-// </AppBar>
-// </div>
-// );
-// }
+handleChange = (name) => event => {
+  this.setState({ ...this.state, [name]: event.target.checked });
+}
 
 
-function MediaCard() {
-const classes = useStyles();
-
-return (
-    <div>
-        <Card className={classes.card}>
-        <CardActionArea>
-        <CardMedia
-    className={classes.media}
-    image="/static/images/cards/contemplative-reptile.jpg"
-    title="Contemplative Reptile"/>
-        <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-        Lizard
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-        across all continents except Antarctica
+  render(){
+  return (
+<div>
+<Card className="card">
+    <CardContent className="insideCard">
+    <Typography color="textSecondary" gutterBottom>
+     Online Mode
+     </Typography>
+    <Typography variant="h5" component="h2">
+     </Typography>
+    <Typography variant="body2" component="p">
+     Is this application connected to the internet?
         </Typography>
         </CardContent>
-        </CardActionArea>
-        <CardActions>
-        <Button size="small" color="primary">
-        Share
-        </Button>
-        <Button size="small" color="primary">
-Learn More
-        </Button>
-        </CardActions>
+        <CardActions className="switch">
+         <Switch
+        checked={this.state.online}
+         onChange={this.handleChange('online')}
+        value="online"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </CardActions>
         </Card>
-    </div>
-);
-}
-function Dashboard() {
-return (
-<div>
 
-<div>Welcome User</div>
-<form>
-<MediaCard/>
-<MediaCard/>
-<MediaCard/>
-</form>
+        <Card className="card">
+          <CardContent className="insideCard">
+            <Typography color="textSecondary" gutterBottom>
+              Master Volume
+            </Typography>
+            <Typography variant="h5" component="h2">
+            </Typography>
+            <Typography variant="body2" component="p">
+              Overrides all other sound settings in this application.
+            </Typography>
+          </CardContent>
+          <CardActions className="switch">
+          <Slider
+            defaultValue={30}
+            valueLabelDisplay="auto"
+            step={10}
+            marks
+            min={10}
+            max={100}
+          />
+          </CardActions>
+        </Card>
+
+        <Card className="card">
+          <CardContent className="insideCard">
+            <Typography color="textSecondary" gutterBottom>
+              Sound Quality
+            </Typography>
+            <Typography variant="h5" component="h2">
+            </Typography>
+            <Typography variant="body2" component="p">
+              Manually control the music quality in event of poor connection.
+            </Typography>
+          </CardContent>
+          <CardActions className="switch">
+          <TextField className="dropDown"
+            select label="Low"
+            select label="Normal"
+            select label="High"
+            
+            
+            > 
+      
+          </TextField>
+          
+         
+          </CardActions>
+        </Card>
+        
 </div>
-
-
-);
+   
+    
+  );
 }
+}
+
 export default Dashboard;
