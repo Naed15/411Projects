@@ -7,6 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 
 import "./App.css";
 
+
+console.log(process.env.REACT_APP_AIzaSyArHvqUDp1vE1t0y5C_vZRG7LTVEorLlAQ)
+
 function App() {
   return (
     <Provider store={store}>
