@@ -3,13 +3,15 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { logout } from "../Redux/actions";
-
 import { Link, withRouter } from "react-router-dom";
 import LoggedIn from "./LoggedIn";
 
+
+
+
 const useStyles = makeStyles(theme => ({
   AppBar: {
-    backgroundColor: "rgb(60,179, 113)"
+    backgroundColor: "blue"
   }
 }));
 

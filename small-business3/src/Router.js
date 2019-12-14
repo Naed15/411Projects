@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "./Components/LoggedIn";
+import Login from "./Components/Login";
 import Listings from "./Components/Listings";
 import AddListing from "./Components/Add";
 import cookie from "cookie";

@@ -11,6 +11,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { deleteBusiness } from "../Redux/actions";
 import CompanyPage from "./CompanyPage";
 
+
 const Listings = ({ user, listings, deleteBusiness }) => {
   return (
     <Container>

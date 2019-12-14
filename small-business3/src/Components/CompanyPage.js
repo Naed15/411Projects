@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Modal from "@material-ui/core/Modal";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GoogleMap from "./GoogleMap";
+
+
 
 function getModalStyle() {
   const top = 50;
@@ -45,19 +46,19 @@ export default function CompanyPage(props) {
 
   useEffect(() => {
     async function google() {
-      const url = `https://maps.google.com/maps/api/geocode/json?key=${process.env.REACT_APP_GOOGLE_KEY}&address=${address}`;
+      const url = `https://maps.google.com/maps/api/geocode/json?key=process.env.REACT_APP `;
       const response = await fetch(url);
       const data = await response.json();
-
-      setLat(data.results[0].geometry.location.lat);
-      setLng(data.results[0].geometry.location.lng);
+      console.log(data)
+      // setLat(data.results[0].spherical.lat);
+      // setLng(data.results[0].spherical.lng);
     }
     google();
   });
 
   return (
     <div>
-      <a href="#">
+      <a href="">
         <p onClick={handleOpen}>{name}</p>
       </a>
       <Modal open={open} onClose={handleClose}>
