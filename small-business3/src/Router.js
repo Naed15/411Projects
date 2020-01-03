@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "./Components/Login";
-import Listings from "./Components/Listings";
-import AddListing from "./Components/Add";
+import Login from "./Components/LoggingIn";
+import Listings from "./Components/Lists";
+import AddListing from "./Components/Additions";
 import cookie from "cookie";
 
 const checkAuth = () => {
@@ -25,9 +25,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 const Router = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Login} />
-      <Route path="/listings" component={Listings} />
-      <ProtectedRoute path="/add" component={AddListing} />
+      <Route exact path="/Login" component={Login} />
+      <Route path="/Lists" component={Listings} />
+      <ProtectedRoute path="/Addition" component={AddListing} />
     </Switch>
   );
 };
